@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Picco | Pick the Best</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  </head>
+  <body>
+    
+    <nav>
+      <div class="">
+        <img class="logoHead" src="./Asssets/0001-removebg.png" />
+      </div>
+      <div class="navTexts">
+        <span> HOME </span>
+        <span> CHEF </span>
+        <span> ABOUT </span>
+      </div>
+    </nav>
+
+    <div class="mainContents">
+      <div>
+        <h1 class="mainText">Get To Know What To Cook Today</h1>
+        <p>Pick the best recipes from top chefs</p>
+      </div>
+      <form id="searchForm"> 
+      <input type="text" id="searchBox" placeholder="Search For Categories.." />
+      </form>
+      <div class="categoryDiv">
+        <div><p class="categoryHeader">POPULAR CATEGORIES</p></div>
+        <div class="flexCategoryCards">
+          <div class="mainCategoryCards"><img class="des2" src="/Asssets/Group 6.png"></div>
+          <div class="mainCategoryCards"><img class="des2" src="/Asssets/Group 5.png"></div>
+          <div class="mainCategoryCards"><img class="des2" src="/Asssets/Group 17.png"></div>
+          <div class="mainCategoryCards"><img class="des2" src="/Asssets/Group 18.png"></div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="randomSection">
+        <h1 class="randomHeader">RANDOM PICK FOR THE DAY</h1>
+        <div class="mainRandomCard" id="mainRandomCard">
+            <div id="RandomImage" class="RandomImage">
+              <img class="randomImage" src="/Asssets/1548772327.jpg">
+            </div>
+          <div class="randomCard">
+            <div class="foodtextMain">
+            <h1 id="foodText">SALMON</h1>
+            </div>
+            <div class="btnDiv">
+            <button class="knowMoreBtn"> Know More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div id="mainRandomCard">
+        <!-- <div class="mainRandomCard" >
+          <div class="randomCard">
+            <div> 
+              <img src="/Asssets/1548772327.jpg" class="randomImage">
+            </div>
+            <div class="textscard">
+              <div class="foodTextParent">
+              <H1 id="foodText"> SALMON </H1>
+              <div class="btnDiv">
+                <button class="knowMoreBtn"> Know More</button>
+                <button class="knowMoreBtn"> Regenerate</button>
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    
+  </div>
+    </section>
+<section>
+    <div id="searchResultsCategory">
+        <div class="searchResultsHeader">
+            <h1> Search Results</h1>
+        </div>
+        <div class="searchResultsCardParent">
+        <div class="searchResultsCardMain" id="searchResultsCardMain">
+            <!-- <div id="searchResultsCard"> -->
+                <!-- <div> 
+                    <img src="/Asssets/1548772327.jpg" id="searchResultImage">
+                </div>
+                <div>
+                    <H1 id="searchResultName"> SALMON </H1>
+                </div> -->
+            </div>
+        </div>
+        </div>
+    </div>
+   
+    </div>
+</section>
+    <footer>
+        <div>
+            <img src="/Asssets/0001-removebg.png" class="footerImage">
+        </div>
+    </footer>
+  </body>
+
+<div class="modalDiv" id="modalDiv">
+  <div class="modalchildDiv"> 
+    <div class="imgModalDiv">
+      <img src="" class="imgModal" id="imageModal">
+    </div>
+    <div class="modalTextContent">
+      <div class="modalHeader">
+      <span class="close">&times;</span>
+      <h1 id="modalHeader"> SALMON </h1>
+      <!-- <hr> -->
+    </div>
+    <div class="ingredients" id="ingredients">
+      <h1 class="ingredientHeader"> INGREDIENTS</h1>
+      <p class="ingredientsList"> GARLIC </p>
+      <P class="ingredientsList"> OREGANO SEEDS </P>
+      <P class="ingredientsList"> TURMERIC </P>
+    </div>
+    <div class="watchBtnModalMain">
+    <a href=""><button id="watchBtnModal"> Watch </button></a>
+    </div>
+  </div>
+</div>
+</div>
+
+  <script src="/src/app.js"></script>
+</html>

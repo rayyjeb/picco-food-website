@@ -26,7 +26,7 @@ async function getData() {
     mealData = data.meals[0];
     let output = `
       <div id="mainRandomCard">
-        <div class="mainRandomCard">
+        <div class="mainRandomCard" >
           <div class="randomCard">
             <div> 
               <img src="${mealData.strMealThumb}" class="randomImage">
@@ -61,7 +61,9 @@ async function getData() {
             ${generateIngredientsList(mealData)}
           </div>
           <div class="watchBtnModalMain">
-            <a href=""><button id="watchBtnModal"> Watch </button></a>
+            <a href="${
+              mealData.strYoutube
+            }" target="_blank"><button id="watchBtnModal"> Watch </button></a>
           </div>
         </div>
       </div>
@@ -70,6 +72,7 @@ async function getData() {
     document.getElementById("mainRandomCard").innerHTML = output;
   } catch (err) {
     console.error(`Error: ${err}`);
+    alert("Please type a valid Category");
   }
 }
 // CLICK FUNCTION FOR RANDOMCARD
@@ -98,6 +101,11 @@ async function search(foodName) {
     let res = await axios.get(url1);
     const data = await res.data.meals;
     console.log("data: ", data);
+    document.getElementById("searchResultsCardMain").innerHTML = "";
+    if (!data || data.length === 0) {
+      alert("No search results found");
+      return;
+    }
     let output = "";
     data.forEach((meal) => {
       output += `
@@ -113,10 +121,12 @@ async function search(foodName) {
 
     document.getElementById("searchResultsCardMain").innerHTML = output;
   } catch (err) {
+    alert("Please type a valid Category");
+    output, (style.display = "none");
     console.error(err);
   }
 }
-
+// FUNCTION TO DISPLAY THE MODAL CORRESPONDING TO THE CLICKED CARD
 function displayrandomdish(mealdata) {
   console.log("dishName: ", mealdata);
   let title = document.getElementById("modalHeader");
@@ -163,9 +173,12 @@ document.getElementById("searchForm").addEventListener("submit", (e) => {
   let foodName = document.getElementById("searchBox").value.trim();
   if (!foodName) {
     search();
+    alert("Please type something to search");
   } else {
     search(foodName);
   }
+  const searchResultsSection = document.getElementById("searchResultsCardMain");
+  searchResultsSection.scrollIntoView({ behavior: "smooth" });
 });
 // MODAL FUNCTION
 var modal = document.getElementById("modalDiv");
@@ -184,3 +197,57 @@ document.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+// MAKING THE POPULAR CATEGORIES FUNCTIONAL
+let categoryClick1 = document
+  .getElementById("category1")
+  .addEventListener("click", (e) => {
+    e.preventDefault();
+    search("Seafood");
+    const searchResultsSection = document.getElementById(
+      "searchResultsCardMain"
+    );
+    searchResultsSection.scrollIntoView({ behavior: "smooth" });
+  });
+let categoryClick2 = document
+  .getElementById("category2")
+  .addEventListener("click", (e) => {
+    e.preventDefault();
+    search("Chicken");
+    const searchResultsSection = document.getElementById(
+      "searchResultsCardMain"
+    );
+    searchResultsSection.scrollIntoView({ behavior: "smooth" });
+  });
+let categoryClick3 = document
+  .getElementById("category3")
+  .addEventListener("click", (e) => {
+    e.preventDefault();
+    search("Breakfast");
+    const searchResultsSection = document.getElementById(
+      "searchResultsCardMain"
+    );
+    searchResultsSection.scrollIntoView({ behavior: "smooth" });
+  });
+let categoryClick4 = document
+  .getElementById("category4")
+  .addEventListener("click", (e) => {
+    e.preventDefault();
+    search("Vegan");
+    const searchResultsSection = document.getElementById(
+      "searchResultsCardMain"
+    );
+    searchResultsSection.scrollIntoView({ behavior: "smooth" });
+  });
+
+// GO TO TOP BUTTON
+const goToTopBtn = document.getElementById("goToTopBtn");
+window.onscroll = function () {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    goToTopBtn.style.display = "block";
+  } else {
+    goToTopBtn.style.display = "none";
+  }
+};
+function goToTop() {
+  document.documentElement.scrollTop = 0;
+}

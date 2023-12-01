@@ -413,6 +413,22 @@ a {
     text-decoration: none;
 }
 
+/* STYLING FOR GO TO TOP BUTTON */
+#goToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #F54F43;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
 
 /* MEDIA SCREEN STYLING*/
 

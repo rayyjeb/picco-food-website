@@ -6,10 +6,15 @@
     <title>Picco | Pick the Best</title>
     <!-- LINK TO EXTERNAL CSS FILE  -->
     <link rel="stylesheet" href="styles/style.css" />
-    <link rel="">
+    <link rel="icon" type="png" href="/Asssets/icon.png">
+    <!-- LINK TO SCROLL ANIMATION CSS FILE -->
+    <link rel="stylesheet" href="/Asssets/aos-master/aos-master/dist/aos.css">
     <!-- LINK TO AJAX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- LINK TO FONTAWESOME -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   </head>
   <body>
     <!-- NAV ELEMENTS -->
@@ -35,10 +40,10 @@
       <div class="categoryDiv">
         <div><p class="categoryHeader">POPULAR CATEGORIES</p></div>
         <div class="flexCategoryCards">
-          <div class="mainCategoryCards"><img class="des2" src="/Asssets/Group 6.png"></div>
-          <div class="mainCategoryCards"><img class="des2" src="/Asssets/Group 5.png"></div>
-          <div class="mainCategoryCards"><img class="des2" src="/Asssets/Group 17.png"></div>
-          <div class="mainCategoryCards"><img class="des2" src="/Asssets/Group 18.png"></div>
+          <div class="mainCategoryCards" id="category1"><img class="des2" src="/Asssets/Group 6.png"></div>
+          <div class="mainCategoryCards" id="category2"><img class="des2" src="/Asssets/Group 5.png"></div>
+          <div class="mainCategoryCards" id="category3"><img class="des2" src="/Asssets/Group 17.png"></div>
+          <div class="mainCategoryCards" id="category4"><img class="des2" src="/Asssets/Group 18.png"></div>
         </div>
       </div>
     </div>
@@ -47,7 +52,7 @@
     <section>
       <div class="randomSection">
         <h1 class="randomHeader">RANDOM PICK FOR THE DAY</h1>
-        <div class="mainRandomCard" id="mainRandomCard">
+        <div class="mainRandomCard" id="mainRandomCard" data.aos ="fade-up">
             <div id="RandomImage" class="RandomImage">
               <img class="randomImage" src="/Asssets/1548772327.jpg">
             </div>
@@ -72,7 +77,7 @@
             <h1> Search Results</h1>
         </div>
         <div class="searchResultsCardParent">
-        <div class="searchResultsCardMain" id="searchResultsCardMain">
+        <div class="searchResultsCardMain" id="searchResultsCardMain" data.aos ="fade-up">
             </div>
         </div>
         </div>
@@ -80,6 +85,9 @@
    
     </div>
 </section>
+<!-- GO TO TOP BUTTON -->
+<button id="goToTopBtn" onclick="goToTop()">Top</button>
+
 <!-- FOOTER CONTENT -->
     <footer>
         <div>

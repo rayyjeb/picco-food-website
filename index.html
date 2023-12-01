@@ -4,24 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Picco | Pick the Best</title>
+    <!-- LINK TO EXTERNAL CSS FILE  -->
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="">
+    <!-- LINK TO AJAX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  
   </head>
   <body>
-    
+    <!-- NAV ELEMENTS -->
     <nav>
       <div class="">
         <img class="logoHead" src="./Asssets/0001-removebg.png" />
       </div>
       <div class="navTexts">
         <span> HOME </span>
-        <span> CHEF </span>
-        <span> ABOUT </span>
+        <a href="https://www.gordonramsay.com/gr/about-gordon/" target="_blank"><span> CHEF </span></a>
+        <a href="https://rayyjeb.github.io/Portfolio/" target="_blank"><span> ABOUT </span></a>
       </div>
     </nav>
-
+<!-- SECTION 1 CONTENTS -->
     <div class="mainContents">
       <div>
         <h1 class="mainText">Get To Know What To Cook Today</h1>
@@ -40,6 +42,8 @@
         </div>
       </div>
     </div>
+
+    <!-- SECTION 2 (RANDOM GENERATED) CONTENTS -->
     <section>
       <div class="randomSection">
         <h1 class="randomHeader">RANDOM PICK FOR THE DAY</h1>
@@ -57,30 +61,11 @@
           </div>
         </div>
       </div>
-      
-      
       <div id="mainRandomCard">
-        <!-- <div class="mainRandomCard" >
-          <div class="randomCard">
-            <div> 
-              <img src="/Asssets/1548772327.jpg" class="randomImage">
-            </div>
-            <div class="textscard">
-              <div class="foodTextParent">
-              <H1 id="foodText"> SALMON </H1>
-              <div class="btnDiv">
-                <button class="knowMoreBtn"> Know More</button>
-                <button class="knowMoreBtn"> Regenerate</button>
-
-                </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
-    
   </div>
     </section>
+    <!-- SECTION-3 (SEARCH RESULTS) CONTENTS -->
 <section>
     <div id="searchResultsCategory">
         <div class="searchResultsHeader">
@@ -88,13 +73,6 @@
         </div>
         <div class="searchResultsCardParent">
         <div class="searchResultsCardMain" id="searchResultsCardMain">
-            <!-- <div id="searchResultsCard"> -->
-                <!-- <div> 
-                    <img src="/Asssets/1548772327.jpg" id="searchResultImage">
-                </div>
-                <div>
-                    <H1 id="searchResultName"> SALMON </H1>
-                </div> -->
             </div>
         </div>
         </div>
@@ -102,13 +80,14 @@
    
     </div>
 </section>
+<!-- FOOTER CONTENT -->
     <footer>
         <div>
             <img src="/Asssets/0001-removebg.png" class="footerImage">
         </div>
     </footer>
   </body>
-
+<!-- MODAL CONTENT -->
 <div class="modalDiv" id="modalDiv">
   <div class="modalchildDiv"> 
     <div class="imgModalDiv">
@@ -117,8 +96,7 @@
     <div class="modalTextContent">
       <div class="modalHeader">
       <span class="close">&times;</span>
-      <h1 id="modalHeader"> SALMON </h1>
-      <!-- <hr> -->
+      <h1 id="modalHeader">  </h1>
     </div>
     <div class="ingredients" id="ingredients">
       <h1 class="ingredientHeader"> INGREDIENTS</h1>
@@ -132,6 +110,6 @@
   </div>
 </div>
 </div>
-
+<!-- LINK TO EXTERNAL JAVA SCRIPT FILE -->
   <script src="/src/app.js"></script>
 </html>

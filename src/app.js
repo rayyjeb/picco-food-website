@@ -1,3 +1,4 @@
+// FUNCTION TO CHANGE THE BACKGROUNDS DYNAMICALLY IN EQUAL INTERVALS OF TIME
 document.addEventListener("DOMContentLoaded", function () {
   // Array of background images
   const backgrounds = [
@@ -10,22 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function changeBackground() {
     document.body.style.backgroundImage = backgrounds[currentBackgroundIndex];
-
-    // Increment index for the next background
     currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
   }
-
   setInterval(changeBackground, 2000);
 });
 
+// FUNCTION TO GET DATA FOR MEALS
 const url = "https://www.themealdb.com/api/json/v1/1/random.php";
-
+let mealData;
 async function getData() {
   try {
     let res = await axios.get(url);
     let data = await res.data;
-    let mealData = data.meals[0];
-
+    mealData = data.meals[0];
     let output = `
       <div id="mainRandomCard">
         <div class="mainRandomCard">
@@ -40,14 +38,13 @@ async function getData() {
                 </div>
               </div>
               <div class="btnDiv">
-                <button class="knowMoreBtn"> Know More</button>
+              <a href=""><button class="knowMoreBtn"> Know More</button></a>
               </div>
             </div>
           </div>
         </div>
       </div>
     `;
-
     let output2 = `
       <div class="modalchildDiv"> 
         <div class="imgModalDiv">
@@ -69,17 +66,19 @@ async function getData() {
         </div>
       </div>
     `;
-
     document.getElementById("modalDiv").innerHTML = output2;
     document.getElementById("mainRandomCard").innerHTML = output;
   } catch (err) {
     console.error(`Error: ${err}`);
   }
 }
+// CLICK FUNCTION FOR RANDOMCARD
 document.getElementById("mainRandomCard").addEventListener("click", (e) => {
   e.preventDefault();
-  getData();
+  displayrandomdish(mealData);
+  console.log("entering in the mainrandom");
 });
+// FUNCTION FOR GENERATING INGREDIENTS FROM API
 function generateIngredientsList(mealData) {
   let ingredientsList = "";
   for (let i = 1; i <= 20; i++) {
@@ -90,20 +89,16 @@ function generateIngredientsList(mealData) {
   }
   return ingredientsList;
 }
-
 getData();
 
 // SECTION 2- SEARCH RESULTS
-
 async function search(foodName) {
   const url1 = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${foodName}`;
   try {
     let res = await axios.get(url1);
     const data = await res.data.meals;
     console.log("data: ", data);
-
     let output = "";
-
     data.forEach((meal) => {
       output += `
         <div class="searchResultsCard" >
@@ -116,33 +111,23 @@ async function search(foodName) {
         </div>`;
     });
 
-    // let output3 = `
-    //     <div class="modalchildDiv">
-    //       <div class="imgModalDiv">
-    //         <img src="${meal.strMealThumb}" class="imgModal">
-    //       </div>
-    //       <div class="modalTextContent">
-    //         <div class="modalHeader">
-    //           <span class="close">&times;</span>
-    //           <h1 id="modalHeader">${meal.strMeal}</h1>
-    //           <hr>
-    //         </div>
-    //         <div class="ingredients">
-    //           <h1> INGREDIENTS</h1>
-    //           ${generateIngredientsList(meal)}
-    //         </div>
-    //         <div class="watchBtnModalMain">
-    //           <a href=""><button id="watchBtnModal"> Watch </button></a>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   `;
-    // document.getElementById("modalDiv").innerHTML = output3;
     document.getElementById("searchResultsCardMain").innerHTML = output;
   } catch (err) {
     console.error(err);
   }
 }
+
+function displayrandomdish(mealdata) {
+  console.log("dishName: ", mealdata);
+  let title = document.getElementById("modalHeader");
+  let dishName = mealdata.strMeal;
+  title.innerHTML = dishName;
+  getDishDetails(dishName);
+  var modal = document.getElementById("modalDiv");
+  modal.style.display = "block";
+}
+
+// FUNCTION TO  DISPLAY THE MODAL FOR THE SEARCH RESULTS
 function displaydish(element) {
   var dishName = element.querySelector("#searchResultName").innerText;
   console.log("dishName: ", dishName);
@@ -152,7 +137,7 @@ function displaydish(element) {
   var modal = document.getElementById("modalDiv");
   modal.style.display = "block";
 }
-
+// FUNCTION TO DISPLAY THE IMAGE AND INGREDIENTS INSIDE THE MODAL
 async function getDishDetails(query) {
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
   let response = await axios
@@ -162,11 +147,9 @@ async function getDishDetails(query) {
       console.log("name: ", data);
       let imageModal = document.getElementById("imageModal");
       imageModal.src = data.strMealThumb;
-
       card = `
       ${generateIngredientsList(data)}
     `;
-
       document.getElementById("ingredients").innerHTML = "";
       document.getElementById("ingredients").innerHTML = card;
     })
@@ -174,17 +157,17 @@ async function getDishDetails(query) {
       console.log(err);
     });
 }
+// FUNCTION TO SUBMIT THE SEARCH BAR
 document.getElementById("searchForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  let foodName = document.getElementById("searchBox").value.trim(); // Trim the input value to handle whitespace
+  let foodName = document.getElementById("searchBox").value.trim();
   if (!foodName) {
-    // If the input is empty, call search with no argument
     search();
   } else {
     search(foodName);
   }
 });
-
+// MODAL FUNCTION
 var modal = document.getElementById("modalDiv");
 var btn = document.getElementById("mainRandomCard");
 var btn1 = document.getElementById("searchResultsCardMain");
@@ -192,9 +175,7 @@ var span = document.getElementsByClassName("close")[0];
 btn.onclick = function () {
   modal.style.display = "block";
 };
-// btn1.onclick = function () {
-//   modal.style.display = "block";
-// };
+
 span.onclick = function () {
   modal.style.display = "none";
 };

@@ -5,29 +5,43 @@ Picco - Pick the Best is a web application designed to help users overcome the d
 ![Screenshot 2023-12-02 151924](https://github.com/rayyjeb/picco-food-website/assets/142793649/e875c322-764f-41f2-90eb-84abbb40ce61)
 
 **Features**
-**Random Meal Suggestions:** Get quick and diverse meal suggestions with just a click.
-**Easy Navigation:** Simple and intuitive design for a seamless user experience.
-**Cooking Made Effortless: **Take the guesswork out of meal planning and enjoy stress-free cooking.
+
+**Random Meal Suggestions:**
+Get quick and diverse meal suggestions with just a click.
+**Easy Navigation:** 
+Simple and intuitive design for a seamless user experience.
+**Cooking Made Effortless**
+Take the guesswork out of meal planning and enjoy stress-free cooking.
 
 **Getting Started**
 **Prerequisites**
+
 Web browser with JavaScript enabled
 
 **Usage**
+
 Visit **(https://picco-pickthebest.netlify.app/)**
 Click on the suggestions or explore various categories for meal ideas.
 Enjoy hassle-free meal planning and cooking!
 
 **Contributing**
+
 If you'd like to contribute to Meal Hub, please follow these steps:
 Fork the repository.
+
 Create a new branch (git checkout -b feature/your-feature-name).
+
 Commit your changes (git commit -m 'Add some feature').
+
 Push to the branch (git push origin feature/your-feature-name).
+
 Open a pull request.
 
 **Acknowledgments**
 Thanks to https://www.themealdb.com/ for providing meal data.
+
 Inspiration for the project from the daily struggle of deciding what to cook.
+
 Contact
+
 If you have any questions or suggestions, feel free to reach out to Sarvesh at rajabshoukathis@gmail.com.

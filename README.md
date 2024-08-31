@@ -44,4 +44,4 @@ Inspiration for the project from the daily struggle of deciding what to cook.
 
 Contact
 
-If you have any questions or suggestions, feel free to reach out to Sarvesh at rajabshoukathis@gmail.com.
+If you have any questions or suggestions, feel free to reach out at rajabshoukathis@gmail.com.
